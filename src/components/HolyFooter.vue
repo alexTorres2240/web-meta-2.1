@@ -10,7 +10,7 @@ defineProps({
     },
     contacto: {
         type: String,
-        default: "alejandro.torres.villalobos"
+        default: "alejandro.torres.villalobos@uabc.edu.mx"
     }
 })
 

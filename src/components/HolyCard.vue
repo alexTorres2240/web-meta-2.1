@@ -15,8 +15,13 @@ defineProps({
     autor: {
         type: String,
         required: true
+    },
+    cargando: {
+        type: Boolean,
+        required: true
     }
 })
+
 </script>
 
 <template>
@@ -25,5 +30,6 @@ defineProps({
         <v-card-title>{{  titulo  }}</v-card-title>
         <v-card-subtitle>{{  autor  }}</v-card-subtitle>
         <v-card-text>{{ descripcion }}</v-card-text>
+        <v-progress-linear v-show="cargando" indeterminate></v-progress-linear>
     </v-card>
 </template>

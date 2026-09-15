@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import HolyCard from './components/HolyCard.vue'
 import HolyHeader from './components/HolyHeader.vue'
 import HolyFooter from './components/HolyFooter.vue'
 import HolyTabla from './components/HolyTabla.vue'
 
+onMounted(()=>{
+  actualizarImagenes() 
+})
+
 const foto1 = ref({
-  imagen: 'https://picsum.photos/id/10/400/250',
+  imagen: '',
   titulo: 'Imágen 1',
   descripcion: 'Fotografía obtenida mediante la API de Picsum.',
   autor: 'Lorem Picsum'
 })
 
 const foto2 = ref({
-  imagen: 'https://picsum.photos/id/20/400/250',
+  imagen: '',
   titulo: 'Imágen 2',
   descripcion: 'Fotografía obtenida mediante la API de Picsum.',
   autor: 'Lorem Picsum'
@@ -87,6 +91,7 @@ async function actualizarImagenes() {
               :titulo="foto1.titulo"
               :descripcion="foto1.descripcion"
               :autor="foto1.autor"
+              :cargando="cargando"
             />
           </v-col>
           <v-col cols="12" md="6">
@@ -95,6 +100,7 @@ async function actualizarImagenes() {
               :titulo="foto2.titulo"
               :descripcion="foto2.descripcion"
               :autor="foto2.autor"
+              :cargando="cargando"
             />
           </v-col>
         </v-row>
